@@ -72,19 +72,25 @@ module Milenage
       @opc = opc
     end
 
+    # Standard getter for the OPc.
+    def opc
+      fail "Must set OP or OPc before retrieving OPc" unless @opc
+      @opc
+    end
+
     # Calculate the network authentication code (MAC-A)
     def f1(rand, sqn, amf)
-      step_a(rand, sqn, amf)[0..8]
+      step_a(rand, sqn, amf)[0..7]
     end
 
     # Calculate the resync authentication code (MAC-S)
     def f1_star(rand, sqn, amf)
-      step_a(rand, sqn, amf)[9..16]
+      step_a(rand, sqn, amf)[8..15]
     end
 
     # Calculate the response (RES)
     def f2(rand)
-      step_b(rand)[9..16]
+      step_b(rand)[8..15]
     end
 
     # Calculate the confidentiallity key (CK)
