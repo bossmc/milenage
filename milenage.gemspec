@@ -6,12 +6,14 @@ require 'milenage/version'
 Gem::Specification.new do |spec|
   spec.name          = "milenage"
   spec.version       = Milenage::VERSION
-  spec.authors       = ["Andy"]
+  spec.authors       = ["Andy Caldwell"]
   spec.email         = ["andy.m.caldwell@googlemail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Ruby implementation of the Milenage algorithm}
+  spec.summary       = %q{Ruby implementation of the Milenage algorithm from 
+                          TS 35.206 using OpenSSL to calculate the Rinjdael
+                          kernel functions}
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "GPL"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -20,4 +22,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "yard"
 end
