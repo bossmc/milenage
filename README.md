@@ -1,6 +1,6 @@
 # Milenage
 
-TODO: Write a gem description
+Ruby implementation of the Milenage security function suite.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+See the (RubyDoc)[http://rubydoc.info/gems/milenage/1.0.0/frames]
 
 ## Contributing
 
