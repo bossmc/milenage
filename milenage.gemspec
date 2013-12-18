@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Ruby implementation of the Milenage algorithm from 
                           TS 35.206 using OpenSSL to calculate the Rinjdael
                           kernel functions}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/bossmc/milenage"
   spec.license       = "GPL"
 
   spec.files         = `git ls-files`.split($/)
