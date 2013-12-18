@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-See the (RubyDoc)[http://rubydoc.info/gems/milenage/1.0.0/frames]
+See the [RubyDoc](http://rubydoc.info/gems/milenage/1.0.0/frames)
 
 ## Contributing
 
