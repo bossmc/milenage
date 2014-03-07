@@ -45,7 +45,7 @@ module Milenage
     # the same API as `OpenSSL::Cipher`, if this is not the case, you may
     # need to overload {#enc} as well to match the API.
     def initialize(key)
-      fail "KEY must be 128 bits" unless key.bytes.length == 16
+      fail "KEY must be 128 bits" unless key.each_byte.to_a.length == 16
       @key = key
       @c = [0, 1, 2, 4, 8].map { |i| [0, i].pack("Q>2") }
       @r = [64, 0, 32, 64, 96]
@@ -57,7 +57,7 @@ module Milenage
     # Either this or {#opc=} must be called before any of the security
     # functions are evaluated.
     def op=(op)
-      fail "OP must be 128 bits" unless op.bytes.length == 16
+      fail "OP must be 128 bits" unless op.each_byte.to_a.length == 16
       @opc = xor(enc(op), op)
     end
 
@@ -68,7 +68,7 @@ module Milenage
     # Either this or {#op=} must be called before any of the security
     # functions are evaluated.
     def opc=(opc)
-      fail "OPc must be 128 bits" unless opc.bytes.length == 16
+      fail "OPc must be 128 bits" unless opc.each_byte.to_a.length == 16
       @opc = opc
     end
 
@@ -124,14 +124,14 @@ module Milenage
 
     def step_0(rand)
       fail "Must set OP or OPc before calculating hashes" unless @opc
-      fail "RAND must be 128 bits" unless rand.bytes.length == 16
+      fail "RAND must be 128 bits" unless rand.each_byte.to_a.length == 16
       enc(xor(rand, @opc))
     end
 
     def step_a(rand, sqn, amf)
       fail "Must set OP or OPc before calculating hashes" unless @opc
-      fail "SQN must be 48 bits" unless sqn.bytes.length == 6
-      fail "AMF must be 16 bits" unless amf.bytes.length == 2
+      fail "SQN must be 48 bits" unless sqn.each_byte.to_a.length == 6
+      fail "AMF must be 16 bits" unless amf.each_byte.to_a.length == 2
       tmp = (sqn + amf + sqn + amf)
       tmp = xor(tmp, @opc)
       tmp = roll(tmp, @r[0])
@@ -170,7 +170,7 @@ module Milenage
     end
 
     def xor(a, b)
-      a.bytes.zip(b.bytes).map do |a, b|
+      a.each_byte.to_a.zip(b.bytes).map do |a, b|
         a ^ b
       end.pack("c*")
     end
