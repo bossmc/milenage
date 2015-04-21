@@ -27,3 +27,7 @@ See the [RubyDoc](http://rubydoc.info/gems/milenage/1.0.0/frames)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## License
+
+Released under the GNU Lesser General Public License as of version 2.0.0.

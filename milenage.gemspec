@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
                           TS 35.206 using OpenSSL to calculate the Rinjdael
                           kernel functions}
   spec.homepage      = "https://github.com/bossmc/milenage"
-  spec.license       = "GPL"
+  spec.license       = "LGPLv3"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
